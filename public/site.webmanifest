@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "gaybugfeet",
+    "short_name": "gaybugfeet",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#fde1ff",
+    "background_color": "#fde1ff",
     "display": "standalone"
 }

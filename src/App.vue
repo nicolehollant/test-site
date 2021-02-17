@@ -1,5 +1,5 @@
 <template>
-<div class="min-h-screen bg-purple-200 py-6 flex flex-col justify-center sm:py-12">
+<div class="fullheight px-2 py-6 flex flex-col justify-center sm:py-12">
   <div class="bg-white m-auto p-5 rounded-lg w-full max-w-prose">
     <div class="space-y-8">
       <img src="https://cole-hollant-objects.nyc3.cdn.digitaloceanspaces.com/pics/me-profile-pic.jpeg" alt="me" class="w-full rounded-md shadow">
@@ -39,9 +39,32 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
 export default {
   name: 'App',
   setup() {
+    onMounted(() => {
+      // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+      let vh = window.innerHeight * 0.01;
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      window.addEventListener('resize', () => {
+        // We execute the same script as before
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      });
+    })
   }
 }
 </script>
+
+<style lang="postcss">
+body, html {
+  @apply bg-purple-200;
+}
+
+.fullheight {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+}
+</style>
